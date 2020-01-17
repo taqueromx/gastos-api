@@ -63,7 +63,7 @@ app.use( morgan( "dev" ) );
 // 		});
 // });
 
-app.get( "/api/gastosVP", ( req, res, next ) => {\
+app.get( "/api/gastosVP", ( req, res, next ) => {
 	let vpUsuario = req.body;
 	let vp = vpUsuario;
 
