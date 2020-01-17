@@ -5,8 +5,7 @@ Versión live del sitio web en [Heroku](https://voice-stats-20.herokuapp.com/)
 <!-- USO DE ARCHIVOS -->
 ## Modelo de base de datos
 
-```model.js
-```
+* model.js
 
 Maneja el modelo de datos que accesa al clúster de MongoDB a través del driver Mongoose de MongoDB para Javascript
 
