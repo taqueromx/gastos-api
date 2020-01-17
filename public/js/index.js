@@ -1,9 +1,9 @@
 
 function init(){
-	let url = '/api/pets';
-	let settings = {
-		method: 'GET'
-	}
+	// let url = '/api/pets';
+	// let settings = {
+	// 	method: 'GET'
+	// }
 
 	// fetch(url, settings)
 	// 	.then( response => {
