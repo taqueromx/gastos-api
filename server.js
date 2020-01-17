@@ -2,7 +2,8 @@ let express = require( "express" );
 let morgan = require( "morgan" );
 let mongoose = require( "mongoose" );
 let bodyParser = require( "body-parser" );
-let { PetList, UserList } = require('./model');
+// let { PetList, UserList } = require('./model');
+let { VPList } = require('./model');
 let { DATABASE_URL, PORT } = require('./config');
 
 let app = express();
@@ -24,15 +25,51 @@ app.use( express.static( "public" ) );
 app.use( morgan( "dev" ) );
 
 
-app.post( "/api/users/register", jsonParser, (req, res, next) => {
-	let {username, password} = req.body;
+// app.post( "/api/users/register", jsonParser, (req, res, next) => {
+// 	let {username, password} = req.body;
 
-	// Validations missing
+// 	// Validations missing
 
-	let user = {username, password};
-	UserList.register(user)
-		.then(newUser => {
-			return res.status( 201 ).json( newUser );
+// 	let user = {username, password};
+// 	UserList.register(user)
+// 		.then(newUser => {
+// 			return res.status( 201 ).json( newUser );
+// 		})
+// 		.catch( error => {
+// 			res.statusMessage = "Something went wrong with the DB. Try again later.";
+// 			return res.status( 500 ).json({
+// 				status : 500,
+// 				message : "Something went wrong with the DB. Try again later."
+// 			})
+// 		});
+// });
+
+// app.post( "/api/users/login", jsonParser, (req, res, next) => {
+// 	let {username, password} = req.body;
+
+// 	// Validations missing
+
+// 	let user = {username, password};
+// 	UserList.login(user)
+// 		.then(goodUser => {
+// 			return res.status( 202 ).json( goodUser );
+// 		})
+// 		.catch( error => {
+// 			res.statusMessage = "Something went wrong with the DB. Try again later.";
+// 			return res.status( 500 ).json({
+// 				status : 500,
+// 				message : "Something went wrong with the DB. Try again later."
+// 			})
+// 		});
+// });
+
+app.get( "/api/gastosVP", ( req, res, next ) => {\
+	let vpUsuario = req.body;
+	let vp = vpUsuario;
+
+	VPList.get(vp)
+		.then( vicepresidencia => {
+			return res.status( 200 ).json( vicepresidencia );
 		})
 		.catch( error => {
 			res.statusMessage = "Something went wrong with the DB. Try again later.";
@@ -43,66 +80,33 @@ app.post( "/api/users/register", jsonParser, (req, res, next) => {
 		});
 });
 
-app.post( "/api/users/login", jsonParser, (req, res, next) => {
-	let {username, password} = req.body;
+// app.post( "/api/postPet", jsonParser, ( req, res, next ) => {
+// 	let name = req.body.name;
+// 	let typeOfPet = req.body.typeOfPet;
+// 	let id = req.body.id;
 
-	// Validations missing
+// 	let newPet = {
+// 		name,
+// 		typeOfPet,
+// 		id
+// 	};
 
-	let user = {username, password};
-	UserList.login(user)
-		.then(goodUser => {
-			return res.status( 202 ).json( goodUser );
-		})
-		.catch( error => {
-			res.statusMessage = "Something went wrong with the DB. Try again later.";
-			return res.status( 500 ).json({
-				status : 500,
-				message : "Something went wrong with the DB. Try again later."
-			})
-		});
-});
-
-app.get( "/api/pets", ( req, res, next ) => {
-	PetList.get()
-		.then( pets => {
-			return res.status( 200 ).json( pets );
-		})
-		.catch( error => {
-			res.statusMessage = "Something went wrong with the DB. Try again later.";
-			return res.status( 500 ).json({
-				status : 500,
-				message : "Something went wrong with the DB. Try again later."
-			})
-		});
-});
-
-app.post( "/api/postPet", jsonParser, ( req, res, next ) => {
-	let name = req.body.name;
-	let typeOfPet = req.body.typeOfPet;
-	let id = req.body.id;
-
-	let newPet = {
-		name,
-		typeOfPet,
-		id
-	};
-
-	PetList.post(newPet)
-		.then( pet => {
-			return res.status( 201 ).json({
-				message : "Pet added to the list",
-				status : 201,
-				student : pet
-			});
-		})
-		.catch( error => {
-			res.statusMessage = "Something went wrong with the DB. Try again later.";
-			return res.status( 500 ).json({
-				status : 500,
-				message : "Something went wrong with the DB. Try again later."
-			});
-		});
-});
+// 	PetList.post(newPet)
+// 		.then( pet => {
+// 			return res.status( 201 ).json({
+// 				message : "Pet added to the list",
+// 				status : 201,
+// 				student : pet
+// 			});
+// 		})
+// 		.catch( error => {
+// 			res.statusMessage = "Something went wrong with the DB. Try again later.";
+// 			return res.status( 500 ).json({
+// 				status : 500,
+// 				message : "Something went wrong with the DB. Try again later."
+// 			});
+// 		});
+// });
 
 let server;
 
