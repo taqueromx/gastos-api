@@ -17,7 +17,7 @@ function init(){
 
 			for ( let i = 0; i < responseJSON.length; i ++ ){
 				$('.listOfVPs').append(`<li>
-				${responseJSON[i].vp} - Gastos Julio-Diciembre 2019: $${responseJSON[i].gastosjd19} millones
+				${responseJSON[i].vp} - Periodo JD19: ${responseJSON[i].gastosjd19} unidades
 										</li>`)
 			}
 		})
