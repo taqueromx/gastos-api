@@ -68,10 +68,10 @@ app.get( "/api/gastosVP", ( req, res, next ) => {
 			return res.status( 200 ).json( vicepresidencia );
 		})
 		.catch( error => {
-			res.statusMessage = "Something went wrong with the DB. Try again later.";
+			res.statusMessage = "No pudimos accesar a la base de datos. Intenta más tarde.";
 			return res.status( 500 ).json({
 				status : 500,
-				message : "Something went wrong with the DB. Try again later."
+				message : "No pudimos accesar a la base de datos. Intenta más tarde."
 			})
 		});
 });
