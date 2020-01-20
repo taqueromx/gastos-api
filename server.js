@@ -2,7 +2,6 @@ let express = require( "express" );
 let morgan = require( "morgan" );
 let mongoose = require( "mongoose" );
 let bodyParser = require( "body-parser" );
-// let { PetList, UserList } = require('./model');
 let { VPList } = require('./model');
 let { DATABASE_URL, PORT } = require('./config');
 

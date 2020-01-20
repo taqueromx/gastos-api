@@ -3,13 +3,6 @@ let bcrypt = require('bcryptjs');
 
 mongoose.Promise = global.Promise;
 
-// let petSchema = mongoose.Schema({
-// 	name : { type : String },
-// 	typeOfPet : { type : String },
-// 	id : { 
-// 			type : Number,
-// 			required : true }
-// });
 
 let vicepresidenciaSchema = mongoose.Schema({
 	vp: { type : String },
@@ -75,26 +68,6 @@ let Vicepresidencia = mongoose.model( 'Viajes', vicepresidenciaSchema );
 // 	}
 // }
 
-// let PetList = {
-// 	get : function(){
-// 		return Pet.find()
-// 				.then( pets => {
-// 					return pets;
-// 				})
-// 				.catch( error => {
-// 					throw Error( error );
-// 				});
-// 	},
-// 	post : function( newPet ){
-// 		return Pet.create( newPet )
-// 				.then( pet => {
-// 					return pet;
-// 				})
-// 				.catch( error => {
-// 					throw Error(error);
-// 				});
-// 	}
-// };
 
 let VPList = {
 	get : function(){
