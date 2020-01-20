@@ -64,10 +64,10 @@ app.use( morgan( "dev" ) );
 // });
 
 app.get( "/api/gastosVP", ( req, res, next ) => {
-	let vpUsuario = req.body;
-	console.log(vpUsuario);
+	let {vp} = req.body;
+	console.log(vp);
 
-	VPList.get()
+	VPList.get(vp)
 		.then( vicepresidencia => {
 			return res.status( 200 ).json( vicepresidencia );
 		})
