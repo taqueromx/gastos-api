@@ -65,7 +65,7 @@ app.use( morgan( "dev" ) );
 
 app.get( "/api/gastosVP", ( req, res, next ) => {
 	let vpUsuario = req.body;
-	let vp = vpUsuario;
+	console.log(vpUsuario);
 
 	VPList.get()
 		.then( vicepresidencia => {

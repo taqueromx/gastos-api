@@ -98,7 +98,7 @@ let Vicepresidencia = mongoose.model( 'Viajes', vicepresidenciaSchema );
 
 let VPList = {
 	get : function(){
-		return Vicepresidencia.find()
+		return Vicepresidencia.find({"vp" : 'rectoria'})
 				.then( datosVP => {
 					return datosVP;
 				})
