@@ -8,8 +8,12 @@ let vicepresidenciaSchema = mongoose.Schema({
 	vp: { type : String },
 	gastosjd19: { type: Number },
 	planjd19 : { type: Number },
+	varvsplan2019 : { type: Number},
 	gastosjd18 : { type: Number },
-	gastosjd14 : { type : Number }
+	varvsplan2018 : { type: Number},
+	gastosjd14 : { type : Number },
+	varvsplan2014 : { type: Number}
+
 });
 
 // let userSchema = mongoose.Schema({
