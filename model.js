@@ -10,6 +10,7 @@ let vicepresidenciaSchema = mongoose.Schema({
 	gastosjd19: { type: Number },
 	planjd19 : { type: Number },
 	varvsplan2019 : { type: Number},
+	porcentajeplan : { type: Number},
 	gastosjd18 : { type: Number },
 	varvsplan2018 : { type: Number},
 	gastosjd14 : { type : Number },
